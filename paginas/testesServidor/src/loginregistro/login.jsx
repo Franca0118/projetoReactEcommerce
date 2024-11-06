@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './cssgeral.css'
+import '../cssgeral.css'
 
 // npm i react-router-dom
 import { useNavigate } from 'react-router-dom';
@@ -9,24 +9,25 @@ import axios from 'axios';
 
 export default () => {
 
-    let [usuario, setusuario] = useState("teste1")
-    let [senha, setsenha] = useState("teste2")
-    let [email, setemail] = useState("teste3")
-    let [cargo, setcargo] = useState("teste4")
+    let [ email, setemail] = useState("")
+    let [ senha, setsenha] = useState("")
     const navegar = useNavigate()
 
-    async function CriarNovosUsuarios()
+    async function fazerLogin()
     {
         
         // 3000 é a porta que esta no index
         // bd/ foi a rota que esta em app.use('/bd/', rotaDosUsuarios);
         // /criarNovo esta na rota de usuarios, usada para criar um novo usuario com 4 parametros
         // nomeados corretamente
-            await axios.post("http://localhost:3000/bd/criarNovo", {
-                usuario, 
-                senha, 
-                email
+            const user = await axios.post("http://localhost:3000/bd/acharum", {
+                email,
+                senha
             })
+            const {token} = user.data
+            // Armazenar o token no localStorage ou sessionStorage
+            localStorage.setItem('token', token);
+           
 
     }
 
@@ -40,30 +41,25 @@ export default () => {
         
         <div class="login-container">
         <div class="login-box">
-            <h1>CADASTRO</h1>
+            <h1>Login</h1>
             <form>
                 <div class="textbox">
-                    <input type="text" placeholder="Usuário" name="usuario" required onInput={(e)=>{
-                        setusuario(e.target.value)
-                    }}/>
-                </div>
-                <div class="textbox">
-                    <input type="text" placeholder="Email" name="senha" required onInput={(e)=>{
+                    <input type="text" placeholder="Email" name="usuario" required onInput={(e)=>{
                         setemail(e.target.value)
                     }}/>
-                </div>
-                <div class="textbox">
-                    <input type="text" placeholder="Senha" name="senha" required onInput={(e)=>{
+                    <input type="text" placeholder="Senha" name="usuario" required onInput={(e)=>{
                         setsenha(e.target.value)
                     }}/>
                 </div>
-                <input type="submit" value="CRIAR" onClick={()=>{
-                    CriarNovosUsuarios()
-                }}/>
+                
             </form>
             <div class="footer">
-                <p>ja tem conta? <a href="/login">login</a></p>
+                <p>nao tem conta? <a href="/login">cadastrar</a></p>
             </div>
+
+            <input type="submit" value="ENTRAR" onClick={()=>{
+                    fazerLogin()
+                }}/>
         </div>
     </div>
     )

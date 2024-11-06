@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './cssgeral.css'
+import '../cssgeral.css'
 
 // npm i react-router-dom
 import { useNavigate } from 'react-router-dom';
@@ -10,18 +10,24 @@ import axios from 'axios';
 export default () => {
 
     let [ email, setemail] = useState("")
+    let [ senha, setsenha] = useState("")
     const navegar = useNavigate()
 
-    async function CriarNovosUsuarios()
+    async function fazerLogin()
     {
         
         // 3000 é a porta que esta no index
         // bd/ foi a rota que esta em app.use('/bd/', rotaDosUsuarios);
         // /criarNovo esta na rota de usuarios, usada para criar um novo usuario com 4 parametros
         // nomeados corretamente
-            return await axios.post("http://localhost:3000/bd/acharum", {
-                email
+            const user = await axios.post("http://localhost:3000/bd/acharum", {
+                email,
+                senha
             })
+            const {token} = user.data
+            // Armazenar o token no localStorage ou sessionStorage
+            localStorage.setItem('token', token);
+           
 
     }
 
@@ -41,6 +47,9 @@ export default () => {
                     <input type="text" placeholder="Email" name="usuario" required onInput={(e)=>{
                         setemail(e.target.value)
                     }}/>
+                    <input type="text" placeholder="Senha" name="usuario" required onInput={(e)=>{
+                        setsenha(e.target.value)
+                    }}/>
                 </div>
                 
             </form>
@@ -49,7 +58,7 @@ export default () => {
             </div>
 
             <input type="submit" value="ENTRAR" onClick={()=>{
-                    console.log(CriarNovosUsuarios())
+                    fazerLogin()
                 }}/>
         </div>
     </div>

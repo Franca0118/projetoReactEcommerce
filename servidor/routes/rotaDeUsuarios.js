@@ -3,8 +3,8 @@ const express = require('express');
 const usuarios = require('../models/usuario');
 const router = express.Router();
 const encriptador = require('bcryptjs')
-
-
+const authMiddleware = require('../autentificador/autentificador.js')
+const jwt = require('jsonwebtoken');
 router.post('/criarNovo', async (req, res) => {
 // codigo basico, sem tratamento de erro
   const {usuario, senha, email, cargo} = req.body
@@ -15,9 +15,21 @@ router.post('/criarNovo', async (req, res) => {
 
 router.post('/acharum', async (req, res) => {
     // codigo basico, sem tratamento de erro
-      const {email} = req.body
+      const {email,senha} = req.body
       const usuarioAchado = await usuarios.findOne({where: {email} })
-      return res.status(200).json({usuarioAchado})
+    
+    if (!encriptador.compare(senha, usuarioAchado.senha)) return res.status(400).json({message: "senha incorreta"})
+
+
+    const token = jwt.sign({ id: usuarioAchado.id, cargo: usuarioAchado.cargo }, 'secreto', { expiresIn: '1h' });
+    res.json({ token, cargo: usuarioAchado.role });
+
+});
+router.post('/atualizarUsuario',authMiddleware, async (req, res) => {
+    
+    console.log("ELE ESTA LOGADO!")
+
+
 });
 
 module.exports = router;
