@@ -39,11 +39,11 @@ export default () => {
    
     return (
         
-        <div class="login-container">
-        <div class="login-box">
+        <div className="login-container">
+        <div className="login-box">
             <h1>Login</h1>
             <form>
-                <div class="textbox">
+                <div className="textbox">
                     <input type="text" placeholder="Email" name="usuario" required onInput={(e)=>{
                         setemail(e.target.value)
                     }}/>
@@ -53,13 +53,15 @@ export default () => {
                 </div>
                 
             </form>
-            <div class="footer">
-                <p>nao tem conta? <a href="/login">cadastrar</a></p>
-            </div>
+            
 
             <input type="submit" value="ENTRAR" onClick={()=>{
                     fazerLogin()
                 }}/>
+
+                <div className="footer">
+                <p>nao tem conta? <a href="/registro">cadastrar</a></p>
+            </div>
         </div>
     </div>
     )

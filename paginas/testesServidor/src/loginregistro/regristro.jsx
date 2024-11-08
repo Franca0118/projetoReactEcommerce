@@ -10,23 +10,25 @@ import axios from 'axios';
 export default () => {
 
     let [ email, setemail] = useState("")
+    let [ usuario, setusuario] = useState("")
     let [ senha, setsenha] = useState("")
+   
     const navegar = useNavigate()
 
-    async function fazerLogin()
+    async function cadastrar()
     {
         
         // 3000 é a porta que esta no index
         // bd/ foi a rota que esta em app.use('/bd/', rotaDosUsuarios);
         // /criarNovo esta na rota de usuarios, usada para criar um novo usuario com 4 parametros
         // nomeados corretamente
-            const user = await axios.post("http://localhost:3000/bd/acharum", {
-                email,
-                senha
+            await axios.post("http://localhost:3000/bd/criarNovo", {
+                usuario,    
+                senha, 
+                email
             })
-            const {token} = user.data
-            // Armazenar o token no localStorage ou sessionStorage
-            localStorage.setItem('token', token);
+           
+        
            
 
     }
@@ -39,27 +41,31 @@ export default () => {
    
     return (
         
-        <div class="login-container">
-        <div class="login-box">
+        <div className="login-container">
+        <div className="login-box">
             <h1>CADASTRO</h1>
-            <form>
-                <div class="textbox">
-                    <input type="text" placeholder="Email" name="usuario" required onInput={(e)=>{
+            <form onSubmit={()=>{
+                cadastrar()
+                navegar('/')
+            }}>
+                <div className="textbox">
+                    <input type="email" placeholder="Email" name="usuario" required onInput={(e)=>{
                         setemail(e.target.value)
                     }}/>
-                    <input type="text" placeholder="Senha" name="usuario" required onInput={(e)=>{
+                    <input type="text" placeholder="Usuario" name="usuario" required onInput={(e)=>{
+                        setusuario(e.target.value)
+                    }}/>
+                    <input type="password" placeholder="Senha" name="usuario" required onInput={(e)=>{
                         setsenha(e.target.value)
                     }}/>
                 </div>
-                
+                <input type="submit" value="ENTRAR"/>
             </form>
-            <div class="footer">
+            <div className="footer">
                 <p>nao tem conta? <a href="/login">cadastrar</a></p>
             </div>
 
-            <input type="submit" value="ENTRAR" onClick={()=>{
-                    fazerLogin()
-                }}/>
+            
         </div>
     </div>
     )
