@@ -13,6 +13,9 @@ module.exports = sequelize.define('usuario', {
   email: {
     type: DataTypes.TEXT,
   },
+  urlImg: {
+    type: DataTypes.TEXT,
+  },
   cargo: {
     type: DataTypes.ENUM('cliente', 'adm'),
     defaultValue: 'cliente',

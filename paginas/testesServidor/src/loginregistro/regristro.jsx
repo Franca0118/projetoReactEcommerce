@@ -12,6 +12,7 @@ export default () => {
     let [ email, setemail] = useState("")
     let [ usuario, setusuario] = useState("")
     let [ senha, setsenha] = useState("")
+    let [ urlImg, seturlImg] = useState("")
    
     const navegar = useNavigate()
 
@@ -25,7 +26,8 @@ export default () => {
             await axios.post("http://localhost:3000/bd/criarNovo", {
                 usuario,    
                 senha, 
-                email
+                email,
+                urlImg
             })
            
         
@@ -49,20 +51,23 @@ export default () => {
                 navegar('/')
             }}>
                 <div className="textbox">
-                    <input type="email" placeholder="Email" name="usuario" required onInput={(e)=>{
+                    <input type="email" placeholder="Email" required onInput={(e)=>{
                         setemail(e.target.value)
                     }}/>
-                    <input type="text" placeholder="Usuario" name="usuario" required onInput={(e)=>{
+                    <input type="text" placeholder="Usuario" required onInput={(e)=>{
                         setusuario(e.target.value)
                     }}/>
-                    <input type="password" placeholder="Senha" name="usuario" required onInput={(e)=>{
+                    <input type="password" placeholder="Senha" required onInput={(e)=>{
                         setsenha(e.target.value)
                     }}/>
+                    <input type="text" placeholder="URL da foto" required onInput={(e)=>{
+                        seturlImg(e.target.value)
+                    }}/>
                 </div>
-                <input type="submit" value="ENTRAR"/>
+                <input type="submit" value="CRIAR"/>
             </form>
             <div className="footer">
-                <p>nao tem conta? <a href="/login">cadastrar</a></p>
+                <p>ja tem conta? <a href="/login">logar</a></p>
             </div>
 
             

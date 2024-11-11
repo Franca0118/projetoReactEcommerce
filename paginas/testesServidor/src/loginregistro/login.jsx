@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import '../cssgeral.css'
 
 // npm i react-router-dom
@@ -13,6 +13,34 @@ export default () => {
     let [ senha, setsenha] = useState("")
     const navegar = useNavigate()
 
+    useEffect(()=>{
+        try{
+            const token = localStorage.getItem('token')
+            const userLogado = token ? JSON.parse(atob(token.split('.')[1])) : null
+            console.log(userLogado)
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.onmouseenter = Swal.stopTimer;
+                  toast.onmouseleave = Swal.resumeTimer;
+                }
+              });
+              Toast.fire({
+                icon: "success",
+                title: `Usuario logado, bem vindo ${userLogado.nome}`
+              });
+              navegar('/perfil')
+
+        }catch{
+            localStorage.clear()
+            console.log("local limpo")
+        }
+
+    },[])
     async function fazerLogin()
     {
         
@@ -26,9 +54,10 @@ export default () => {
             })
             const {token} = user.data
             // Armazenar o token no localStorage ou sessionStorage
-            localStorage.setItem('token', token);
+            await localStorage.clear()
+            await localStorage.setItem('token', token);
            
-
+            navegar('/perfil')
     }
 
 
@@ -42,7 +71,9 @@ export default () => {
         <div className="login-container">
         <div className="login-box">
             <h1>Login</h1>
-            <form>
+            <form onSubmit={
+                event.preventDefault()
+            }>
                 <div className="textbox">
                     <input type="text" placeholder="Email" name="usuario" required onInput={(e)=>{
                         setemail(e.target.value)
@@ -57,6 +88,7 @@ export default () => {
 
             <input type="submit" value="ENTRAR" onClick={()=>{
                     fazerLogin()
+                    
                 }}/>
 
                 <div className="footer">

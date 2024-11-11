@@ -130,6 +130,18 @@ body {
     max-width: 400px;
     box-sizing: border-box;
 }
+.form-container section {
+    text-align: center;
+    
+    
+    
+
+}
+.form-container img {
+    width: 30%;
+    border-radius: 50%;
+
+}
 .form-container h2 {
     text-align: center;
     color: #333;
