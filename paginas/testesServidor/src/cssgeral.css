@@ -6,7 +6,6 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #ff2a68, #7928ca);
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -183,3 +182,84 @@ body {
 .btn-submit:hover {
     background-color: #45a049;
 }
+
+a{
+    color: black;
+    text-decoration: none;
+}
+.paginaInicial header img {
+    width: 10vw;
+}
+
+.paginaInicial header nav {
+    display: flex;
+    justify-content: space-around;
+    width: 30vw;
+}
+
+
+.paginaInicial header {
+    display: flex;
+    width: 100vw;
+    justify-content: space-around;
+    position: absolute;
+    top: 0; left: 0;
+    padding: 10px;
+    align-items: center;
+    background: rgb(7,5,32);
+    background: linear-gradient(153deg, rgba(7,5,32,1) 0%, rgba(5,5,15,1) 61%, rgba(65,65,65,1) 100%);
+}
+
+.paginaInicial header nav a {
+    color: white;
+}
+
+.paginaInicial header .icon2{
+    display: flex;
+    justify-content: space-between;
+    width: 9vw;
+    color: white;
+    font-size: 2.5vw;
+}
+.paginaInicial header input {
+    height: 3vw;
+    padding: 10px;
+    width: 20vw;
+    border-radius: 12px;
+}
+
+.paginaInicial header input:focus{
+    outline: none;
+}
+.paginaInicial header h1{
+    color: white;
+    font-size: 1.3vw;
+    display: flex;
+    align-items: center;
+}
+
+.paginaInicial header span{
+    width: 14vw;
+    display: flex;
+    cursor: pointer;
+    transition: .1s;
+    padding: 2px;
+    align-items: center;
+}
+
+.paginaInicial header span:hover {
+    scale: .98;
+    background: white;
+
+}
+.paginaInicial header span:hover h1, .paginaInicial header span:hover .icon2 {
+    color: black;
+}
+
+
+.paginaInicial .icons{
+    width: 20vw;
+    display: flex;
+    margin-right: 1vw;
+}
+

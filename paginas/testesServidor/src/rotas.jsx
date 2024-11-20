@@ -4,14 +4,18 @@ import PrivateRoute from './auth/PrivateRoute';
 import Login from './loginregistro/login';
 import Perfil from './Perfil/perfil'
 import Registrar from './loginregistro/regristro';
+import Inicial from './inicial/inicial'
+import './cssgeral.css'
 
 
 export default () => {
   return (
     <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Login />} ></Route>
+                <Route path="/" element={<Inicial />} ></Route>
+                <Route path="/login" element={<Login />} ></Route>
                 <Route path="/registro" element={<Registrar />} ></Route>
+                
 
                 {// aqui é entregado os cargos que queremos permitir entrar nas rotas
                 // e dentro da funcao em auth, testamos se o token armazenado localmente 

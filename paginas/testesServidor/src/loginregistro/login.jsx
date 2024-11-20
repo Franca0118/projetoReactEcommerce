@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import '../cssgeral.css'
+
 
 // npm i react-router-dom
 import { useNavigate } from 'react-router-dom';
@@ -33,7 +33,7 @@ export default () => {
                 icon: "success",
                 title: `Usuario logado, bem vindo ${userLogado.nome}`
               });
-              navegar('/perfil')
+              navegar('/')
 
         }catch{
             localStorage.clear()
@@ -57,7 +57,7 @@ export default () => {
             await localStorage.clear()
             await localStorage.setItem('token', token);
            
-            navegar('/perfil')
+            navegar('/')
     }
 
 

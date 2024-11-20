@@ -3,7 +3,7 @@ import { Navigate, Outlet } from 'react-router-dom';
 
 const PrivateRoute = ({ roles }) => {
     // resgata o tokon anteriomente armazenado localmente
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem('token').toString();
   console.log(token)
   const userRole = token ? JSON.parse(atob(token.split('.')[1])).cargo : null;
   
