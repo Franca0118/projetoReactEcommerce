@@ -3,13 +3,15 @@ const express = require('express');
 const usuarios = require('../models/usuario');
 const router = express.Router();
 const encriptador = require('bcryptjs')
-const authMiddleware = require('../autentificador/autentificador.js')
+const authMiddlewareADM = require('../autentificador/autentificadorADM.js')
+
+const authMiddlewareUSER = require('../autentificador/autentificadorUSER.js')
 const jwt = require('jsonwebtoken');
 
 
 
 
-router.post('/criarNovo', async (req, res) => {
+router.post('/criarNovo' , async (req, res) => {
 // codigo basico, sem tratamento de erro
   const {usuario, senha, email, urlImg} = req.body
   const senhaEnc = await encriptador.hash(senha, 10)
@@ -43,14 +45,12 @@ router.post('/alterar/:id', async (req, res) => {
     user.update({usuario, email, urlImg})
 
     res.status(200).json({user})
-    
   
-
-
-  
-
 });
 
+router.get('/teste',authMiddlewareUSER , async (req, res) => {
+
+});
 
 
 

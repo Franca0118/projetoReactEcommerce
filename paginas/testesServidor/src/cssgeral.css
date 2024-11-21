@@ -263,3 +263,23 @@ a{
     margin-right: 1vw;
 }
 
+#paginaadm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40vw;
+}
+#paginaadm button{
+    padding: 10px;
+}
+#paginaadm form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 3vw;
+}
+
+#paginaadm form input {
+    padding: 10px;
+}
+

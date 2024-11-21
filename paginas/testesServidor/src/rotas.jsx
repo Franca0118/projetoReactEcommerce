@@ -5,6 +5,7 @@ import Login from './loginregistro/login';
 import Perfil from './Perfil/perfil'
 import Registrar from './loginregistro/regristro';
 import Inicial from './inicial/inicial'
+import Adm from './adm/adm'
 import './cssgeral.css'
 
 
@@ -15,6 +16,7 @@ export default () => {
                 <Route path="/" element={<Inicial />} ></Route>
                 <Route path="/login" element={<Login />} ></Route>
                 <Route path="/registro" element={<Registrar />} ></Route>
+                <Route path="/adm" element={<Adm />} ></Route>
                 
 
                 {// aqui é entregado os cargos que queremos permitir entrar nas rotas
