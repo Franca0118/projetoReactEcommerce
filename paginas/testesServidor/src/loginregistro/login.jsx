@@ -45,10 +45,10 @@ export default () => {
     {
         
         // 3000 é a porta que esta no index
-        // bd/ foi a rota que esta em app.use('/bd/', rotaDosUsuarios);
+        // bd/ foi a rota que esta em app.use('/usuario/', rotaDosUsuarios);
         // /criarNovo esta na rota de usuarios, usada para criar um novo usuario com 4 parametros
         // nomeados corretamente
-            const user = await axios.post("http://localhost:3000/bd/acharum", {
+            const user = await axios.post("http://localhost:3000/usuario/acharum", {
                 email,
                 senha
             })
@@ -71,9 +71,7 @@ export default () => {
         <div className="login-container">
         <div className="login-box">
             <h1>Login</h1>
-            <form onSubmit={
-                event.preventDefault()
-            }>
+            <form>
                 <div className="textbox">
                     <input type="text" placeholder="Email" name="usuario" required onInput={(e)=>{
                         setemail(e.target.value)

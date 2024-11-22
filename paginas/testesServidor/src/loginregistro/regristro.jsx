@@ -20,10 +20,10 @@ export default () => {
     {
         
         // 3000 é a porta que esta no index
-        // bd/ foi a rota que esta em app.use('/bd/', rotaDosUsuarios);
+        // bd/ foi a rota que esta em app.use('/usuario/', rotaDosUsuarios);
         // /criarNovo esta na rota de usuarios, usada para criar um novo usuario com 4 parametros
         // nomeados corretamente
-            await axios.post("http://localhost:3000/bd/criarNovo", {
+            await axios.post("http://localhost:3000/usuario/criarNovo", {
                 usuario,    
                 senha, 
                 email,

@@ -267,7 +267,7 @@ a{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 40vw;
+    margin: 500px 0 0 0
 }
 #paginaadm button{
     padding: 10px;

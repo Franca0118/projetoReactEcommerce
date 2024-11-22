@@ -25,7 +25,7 @@ export default () => {
   
 
     const mudarUser = async () => {
-        const newUser = await axios.post(`http://localhost:3000/bd/alterar/`+user.id, {
+        const newUser = await axios.post(`http://localhost:3000/usuario/alterar/`+user.id, {
             usuario,
             email,
             urlImg
