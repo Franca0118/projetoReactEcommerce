@@ -5,6 +5,7 @@ import Login from './loginregistro/login';
 import Perfil from './Perfil/perfil'
 import Registrar from './loginregistro/regristro';
 import Inicial from './inicial/inicial'
+import ProdutosPag from './produtoPag/produtoPagina'
 import Adm from './adm/adm'
 import './cssgeral.css'
 
@@ -17,7 +18,7 @@ export default () => {
                 <Route path="/login" element={<Login />} ></Route>
                 <Route path="/registro" element={<Registrar />} ></Route>
                 <Route path="/adm" element={<Adm />} ></Route>
-                
+                <Route path="/produtoPag" element={<ProdutosPag/>} ></Route>
 
                 {// aqui é entregado os cargos que queremos permitir entrar nas rotas
                 // e dentro da funcao em auth, testamos se o token armazenado localmente 

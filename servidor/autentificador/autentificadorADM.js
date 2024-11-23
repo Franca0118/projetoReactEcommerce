@@ -27,8 +27,6 @@ module.exports = () => {
         // secret or public key [options] - Options for the verification callback - 
         // Callback to get the decoded token on
         jwt.verify(token, 'secreto', (err, user) => {
-        console.log(token)
-        console.log(user)
         if (err) return res.status(401).json({ message: 'Token inválido' });
 
         if (cargos.length && !cargos.includes(user.role)) {

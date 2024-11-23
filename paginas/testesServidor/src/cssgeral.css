@@ -267,7 +267,7 @@ a{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 500px 0 0 0
+    margin: 100vh 0 0 0
 }
 #paginaadm button{
     padding: 10px;
@@ -283,3 +283,37 @@ a{
     padding: 10px;
 }
 
+#paginaPrincProd{
+    width: 90vw;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+#paginaPrincProd div{
+    border: 3px solid black;
+    border-radius: 10px;
+    width: 16vw;
+    display: flex;
+    flex-direction: column;
+
+    padding: 30px;
+    gap:10px
+
+}
+
+#paginaPrincProd h3{
+    color: green;
+
+}
+
+
+#paginaPrincProd img {
+    width: 10vw;
+    min-height: 7vw;
+    border: 1px solid black;
+    background: url(https://cdn-icons-png.flaticon.com/512/813/813789.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}

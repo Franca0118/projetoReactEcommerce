@@ -15,7 +15,6 @@ module.exports = (req, res, next) => {
 
         const token = req.headers.authorization
         const cargos = ['cliente']
-        console.log(req.body)
         // caso aja problemas para recuperar o token em authorization, ele para o codigo e retorna
         if (!token) return res.status(401).json({ message: 'Token não fornecido' });
 
@@ -34,7 +33,6 @@ module.exports = (req, res, next) => {
             return res.status(403).json({ error: 'Acesso negado' });
         }
         req.userId = user.id;
-        console.log("a")
         next();
         // O next() é uma função que pertence ao fluxo de middleware do Express. 
         // Quando usada em uma função de middleware, ela diz ao Express para passar 

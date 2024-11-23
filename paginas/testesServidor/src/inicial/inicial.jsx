@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 export default () => {
     let [user, setUser] = useState([])
     let [user22, setUser2] = useState("gwagaw")
+    let [todosProdutos, setTodos] = useState([])
     const nagevar = useNavigate()
 
     let [logado, setLogado] = useState(
@@ -41,9 +42,18 @@ export default () => {
                 })
             } 
     }
+
+    let todos = async () => {
+      await axios.get("http://localhost:3000/produto/getAll").then((a)=>{
+        setTodos(a.data.todos)
+      })
+
+       
+    }
     
     useEffect(()=>{
         verToken()
+        todos()
     },[])
 
 
@@ -56,7 +66,7 @@ export default () => {
         <a href="#">menu</a>
         <a href="#">menu</a>
         <a href="#">menu</a>
-        <a href="#">menu</a>
+        <a href="/adm">adm</a>
     </nav>
     <div className="search">
         <input type="text" placeholder="Buscar produtos..."/>
@@ -66,7 +76,27 @@ export default () => {
         <span><CiShoppingCart className="icon2" /></span>
     </div>
     </header>
-    
+
+    <h1>Produtos</h1>
+    <section id="paginaPrincProd">
+        
+        {
+            todosProdutos.length < 1 ? 
+            "CARREGANDO" : 
+            todosProdutos.map((a)=>{
+                return (
+                    <div onClick={()=>{
+                        nagevar(`/produtoPag?idprod=${a.id}`)
+                    }}>
+                        <img src={a.urlImg} alt=""/>
+                        <h2>{a.nome}</h2>
+                        <h3>R${a.preco}</h3>
+                        <p>{a.descricao}</p>
+                    </div>
+                )
+            })
+        }
+    </section>
     </div>
 
 

@@ -48,10 +48,14 @@ router.post('/alterar/:id', async (req, res) => {
   
 });
 
-router.get('/teste',authMiddlewareUSER , async (req, res) => {
-
+router.get('/verify',authMiddlewareUSER , async (req, res) => {
+  
 });
 
-
+router.get('/deletarUser/:id',authMiddlewareUSER , async (req, res) => {
+  const {id} = req.params
+  const user = await usuarios.findOne({where: {id}})
+  user.destroy()
+});
 
 module.exports = router;
