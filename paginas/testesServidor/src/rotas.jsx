@@ -6,6 +6,9 @@ import Perfil from './Perfil/perfil'
 import Registrar from './loginregistro/regristro';
 import Inicial from './inicial/inicial'
 import ProdutosPag from './produtoPag/produtoPagina'
+import Carrinho from './carrinho/carrinho'
+
+
 import Adm from './adm/adm'
 import './cssgeral.css'
 
@@ -19,8 +22,10 @@ export default () => {
                 <Route path="/registro" element={<Registrar />} ></Route>
                 <Route path="/adm" element={<Adm />} ></Route>
                 <Route path="/produtoPag" element={<ProdutosPag/>} ></Route>
+                <Route path="/carrinho" element={<Carrinho/>} ></Route>
 
-                {// aqui é entregado os cargos que queremos permitir entrar nas rotas
+                {
+                // aqui é entregado os cargos que queremos permitir entrar nas rotas
                 // e dentro da funcao em auth, testamos se o token armazenado localmente 
                 // possui a permissao necessaria para acessar a rota 
                 }

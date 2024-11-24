@@ -10,6 +10,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
 }
 
 .login-container {
@@ -187,18 +188,17 @@ a{
     color: black;
     text-decoration: none;
 }
-.paginaInicial header img {
+header img {
     width: 10vw;
 }
-
-.paginaInicial header nav {
+header nav {
     display: flex;
     justify-content: space-around;
     width: 30vw;
 }
 
 
-.paginaInicial header {
+header {
     display: flex;
     width: 100vw;
     justify-content: space-around;
@@ -210,35 +210,35 @@ a{
     background: linear-gradient(153deg, rgba(7,5,32,1) 0%, rgba(5,5,15,1) 61%, rgba(65,65,65,1) 100%);
 }
 
-.paginaInicial header nav a {
+header nav a {
     color: white;
 }
 
-.paginaInicial header .icon2{
+ header .icon2{
     display: flex;
     justify-content: space-between;
     width: 9vw;
     color: white;
     font-size: 2.5vw;
 }
-.paginaInicial header input {
+header input {
     height: 3vw;
     padding: 10px;
     width: 20vw;
     border-radius: 12px;
 }
 
-.paginaInicial header input:focus{
+header input:focus{
     outline: none;
 }
-.paginaInicial header h1{
+header h1{
     color: white;
     font-size: 1.3vw;
     display: flex;
     align-items: center;
 }
 
-.paginaInicial header span{
+header span{
     width: 14vw;
     display: flex;
     cursor: pointer;
@@ -247,17 +247,32 @@ a{
     align-items: center;
 }
 
-.paginaInicial header span:hover {
+header span:hover {
     scale: .98;
     background: white;
 
 }
-.paginaInicial header span:hover h1, .paginaInicial header span:hover .icon2 {
+header span:hover h1, .paginaInicial header span:hover .icon2 {
     color: black;
 }
 
+.imgpagincc{
+   width: 8vh; 
 
-.paginaInicial .icons{
+
+}
+.IncPag{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  
+}
+.inputTime{
+    margin-right: 5vw;
+    width: 15vw;
+    padding: 10p;
+}
+.icons{
     width: 20vw;
     display: flex;
     margin-right: 1vw;
@@ -312,8 +327,86 @@ a{
     width: 10vw;
     min-height: 7vw;
     border: 1px solid black;
-    background: url(https://cdn-icons-png.flaticon.com/512/813/813789.png);
+    background: url(https://images-ext-1.discordapp.net/external/aZKVVj5H7avCwQQQSaAF4jqE7kGoHsb-5Tmf_zuMNaU/https/via.placeholder.com/500x500?format=webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+#exibisaoProduto {
+    margin-left: -10vw;
+}
+
+#exibisaoProduto div{
+    display: flex;
+    gap: 13vw;
+}
+
+#exibisaoProduto span~span h2{
+    color: #45a049;
+}
+
+#exibisaoProduto span~span h1{
+    margin-bottom: 10vh;
+}
+
+#exibisaoProduto button{
+    width: 20vw;
+    padding: 20px;
+    background: green;
+    font-size: 20px;
+}
+
+
+
+#exibisaoProduto .divprod img{
+    min-width: 40vw;
+    min-height: 30vw;
+    max-width: 40vw;
+    max-height: 30vw;
+    border-radius: 10px;
+    border: 1px solid black;
+    background: url(https://cdn-icons-png.flaticon.com/512/2088/2088090.png);
+}
+
+
+#carrinhodiv {
+    display: flex;
+    width: 30vw;
+    flex-direction: column;
+    gap: 20px;
+    height: 30vw;
+    overflow-y: scroll;
+    padding: 30px;
+}
+
+#carrinhodiv section{
+    display: flex;
+    gap: 30px;
+    padding: 10px;
+    border: 1px solid black;
+}
+#carrinho h2{
+    color: green;
+}
+#carrinho button{
+    width: 100%;
+    padding: 10px;
+    font-size: 30px;
+    background: green;
+}
+#carrinho button:hover{
+    background: greenyellow;
+}
+#carrinhodiv img{
+    max-width: 20vw;
+    min-width: 20vw;   
+    min-height: 10vh;
+    background: url(https://cdn-icons-png.flaticon.com/512/2088/2088090.png); 
     background-repeat: no-repeat;
     background-size: contain;
-    background-position: center;
+}
+
+
+#prodH1{
+    margin-top:30vw;
 }

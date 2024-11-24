@@ -63,6 +63,7 @@ export default  () => {
                 authorization: token
             }
         }).catch(()=>{
+            localStorage.clear()
             navegar('/')
         })
     }

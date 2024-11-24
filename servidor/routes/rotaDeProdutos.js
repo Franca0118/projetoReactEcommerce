@@ -25,16 +25,10 @@ router.post('/editar/:id',authMiddlewareUSER , async (req, res) => {
       return res.json({msg: "erro ao encontrar produto"})
     }
 
-    
     const {nome,descricao,time,preco,urlImg,estoque} = req.body
-      
     await produto.update({nome,descricao,time,preco,urlImg,estoque}).then(()=>{
     return res.json({msg:"Produto alterado com sucesso"})
     })
-     
-
-     
-
 });
 
 router.get('/deletarprodutos/:id',authMiddlewareUSER , async (req, res) => {
